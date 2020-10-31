@@ -65,8 +65,8 @@ def experiment_should_get_two_docs_using_match_phrase_query():
         # arrange
         seed_elasticsearch_with_pipe_products(index_name)
 
-        # act: should find all docs as the tokenized terms like 'PVC', 'water', 'pipe' will mostly
-        # like match all docs
+        # act: should find just two docs, as the 'match_phrase' analyzes the search text (tokenizes it) and
+        # creates a phrase query of the text (which must respect the token order)
         # fmt: off
         query = {
             "query": {
