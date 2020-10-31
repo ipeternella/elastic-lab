@@ -1,0 +1,8 @@
+# starts by excluding all files
+*
+
+# allows very specific files to be on the final built image
+!Pipfile*
+!*.py
+!scripts
+!elastic_lab

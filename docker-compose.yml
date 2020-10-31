@@ -1,0 +1,33 @@
+version: "3.8"
+
+x-build:
+  &dockerfile-local-build
+  context: .
+  dockerfile: Dockerfile.local
+
+services:
+  es:
+    image: elasticsearch:7.9.1
+    container_name: es
+    ports:
+      - "9200:9200"
+    environment:
+      ES_JAVA_OPTS: "-Xms256m -Xmx512m"
+      discovery.type: single-node
+
+  tests:
+    container_name: tests
+    build: *dockerfile-local-build
+    env_file: .local.env
+    volumes:
+      - .:/app
+    depends_on:
+      - es
+    command: [
+        "scripts/wait-for-it.sh",
+        "es:9200",
+        "-t",
+        "180",  # yes, it's really slow
+        "--",
+        "scripts/start-tests.sh"
+    ]

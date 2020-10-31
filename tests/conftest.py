@@ -1,0 +1,3 @@
+"""
+Pytest's configuration.
+"""
