@@ -1,4 +1,4 @@
-# Experiments: leaf queries
+# Experiments: Leaf Queries
 
 ## Term vs Match queries
 
