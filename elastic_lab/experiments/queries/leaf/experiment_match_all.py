@@ -5,9 +5,6 @@ from elastic_lab.tools.services.seed import seed_elasticsearch_with_pipe_product
 
 
 def experiment_match_all_should_query_all_documents():
-    """
-    Objective: use 'match_all' leaf query to get all documents from an index.
-    """
     # arrange
     index_name = f"pipes-index-1-{uuid4()}"
     seed_elasticsearch_with_pipe_products(index_name)
