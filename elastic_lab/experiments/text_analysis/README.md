@@ -51,3 +51,40 @@ The token filter is similar to the character filter, but receives the generated 
 - `synonym token filter`: adds synonyms to the token stream;
 
 The analyzer can have zero or more token filters, which are applied in order.
+
+## Default Analyzer
+
+Elasticsearch comes with a default text analyzer which roughly uses:
+
+- `standard tokenizer`: grammar based tokenization which works well in most languages (removes most punctuation);
+- `lower case token filter`: lowercases every extracted token;
+- `stop token filter`: **disabled** by default, but removes "common words" in english but there are extensions for many other languages
+
+## Custom Analyzers
+
+Customs analyzers can be created for each desired index by make a PUT to the index settings. Morever, the customized analyzer can be tested using the `_analyze` route:
+
+```text
+# customizes the analyzer
+PUT my-index-000001
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_english_analyzer": {
+          "type": "standard",
+          "max_token_length": 5,
+          "stopwords": "_english_"
+        }
+      }
+    }
+  }
+}
+
+# tests the analyzer
+POST my-index-000001/_analyze
+{
+  "analyzer": "my_english_analyzer",
+  "text": "The 2 QUICK Brown-Foxes jumped over the lazy dog's bone."
+}
+```
