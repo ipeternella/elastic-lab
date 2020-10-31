@@ -1,0 +1,88 @@
+{
+    "data": [
+        {
+            "provider_id": "a604dcfd-c420-4067-af32-9b7ee94f0112",
+            "provider_sku": "SKU00001A",
+            "name": "PVC elbow 90° joint",
+            "description": "PVC water pipe elbow joint of 90 degrees",
+            "annotations": [
+                {
+                    "name": "Pipe fitting size",
+                    "value": "1/4 in"
+                }
+            ],
+            "gross_price": "0.59",
+            "unit": "each"
+        },
+        {
+            "provider_id": "a604dcfd-c420-4067-af32-9b7ee94f0112",
+            "provider_sku": "SKU00001B",
+            "name": "PVC elbow 90° joint",
+            "description": "PVC water pipe elbow joint of 90 degrees",
+            "annotations": [
+                {
+                    "name": "Pipe fitting size",
+                    "value": "1/2 in"
+                }
+            ],
+            "gross_price": "0.79",
+            "unit": "each"
+        },
+        {
+            "provider_id": "a604dcfd-c420-4067-af32-9b7ee94f0112",
+            "provider_sku": "SKU00002A",
+            "name": "PVC elbow 45° joint",
+            "description": "PVC water pipe elbow joint of 45 degrees",
+            "annotations": [
+                {
+                    "name": "Pipe fitting size",
+                    "value": "1/4 in"
+                }
+            ],
+            "gross_price": "0.65",
+            "unit": "each"
+        },
+        {
+            "provider_id": "a604dcfd-c420-4067-af32-9b7ee94f0112",
+            "provider_sku": "SKU00002B",
+            "name": "PVC elbow 45° joint",
+            "description": "PVC water pipe elbow joint of 45 degrees",
+            "annotations": [
+                {
+                    "name": "Pipe fitting size",
+                    "value": "1/2 in"
+                }
+            ],
+            "gross_price": "0.75",
+            "unit": "each"
+        },
+        {
+            "provider_id": "a604dcfd-c420-4067-af32-9b7ee94f0112",
+            "provider_sku": "SKU00003A",
+            "name": "PVC tee join",
+            "description": "PVC water tee joint",
+            "annotations": [
+                {
+                    "name": "Pipe fitting size",
+                    "value": "1/4 in"
+                }
+            ],
+            "gross_price": "0.85",
+            "unit": "each"
+        },
+        {
+            "provider_id": "a604dcfd-c420-4067-af32-9b7ee94f0112",
+            "provider_sku": "SKU00003A",
+            "name": "PVC tee join",
+            "description": "PVC water tee joint",
+            "annotations": [
+                {
+                    "name": "Pipe fitting size",
+                    "value": "1/2 in"
+                }
+            ],
+            "gross_price": "1.05",
+            "unit": "each"
+        }
+    ]
+}
