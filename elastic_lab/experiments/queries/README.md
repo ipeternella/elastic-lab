@@ -1,4 +1,4 @@
-# Elasticsearch DSL (Domain specific language)
+# Experiments: Elasticsearch DSL (Domain specific language)
 
 Elasticsearch provides a full query DSL (Domain Specific Language) which is based on JSONs. Hence, Elasticsearch's DSL is like an AST (Abstract Syntax Tree) defined with JSONs.
 
