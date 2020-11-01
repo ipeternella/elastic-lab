@@ -7,9 +7,9 @@ def experiment_should_get_all_documents_using_match_all_query():
     with temporary_index(elastic_client) as index_name:
         # arrange
         seed_elasticsearch_with_pipe_products(index_name)
+        query = {"query": {"match_all": {}}}
 
         # act
-        query = {"query": {"match_all": {}}}
         es_response = elastic_client.search(index=index_name, body=query)
 
         # assert
@@ -21,8 +21,6 @@ def experiment_should_get_no_docs_using_term_query():
         # arrange
         seed_elasticsearch_with_pipe_products(index_name)
 
-        # act: should not find as 'description' field is text and has been analyzed (tokenized)
-        # so the qry shouldn't find any docs with term (which does not analyze the searched term)
         # fmt: off
         query = {
             "query": {
@@ -32,6 +30,9 @@ def experiment_should_get_no_docs_using_term_query():
             }
         }
         # fmt: on
+
+        # act -> should not find as 'description' field is text and has been analyzed (tokenized)
+        # so the qry shouldn't find any docs with term (which does not analyze the searched term)
         es_response = elastic_client.search(index=index_name, body=query)
 
         # assert
@@ -43,8 +44,6 @@ def experiment_should_get_all_docs_using_match_query():
         # arrange
         seed_elasticsearch_with_pipe_products(index_name)
 
-        # act: should find all docs as the tokenized terms like 'PVC', 'water', 'pipe' will mostly
-        # like match all docs
         # fmt: off
         query = {
             "query": {
@@ -54,6 +53,8 @@ def experiment_should_get_all_docs_using_match_query():
             }
         }
         # fmt: on
+
+        # act -> should find all docs as the tokenized terms like 'PVC', 'water', 'pipe' will mostly like match all docs
         es_response = elastic_client.search(index=index_name, body=query)
 
         # assert
@@ -65,8 +66,6 @@ def experiment_should_get_two_docs_using_match_phrase_query():
         # arrange
         seed_elasticsearch_with_pipe_products(index_name)
 
-        # act: should find just two docs, as the 'match_phrase' analyzes the search text (tokenizes it) and
-        # creates a phrase query of the text (which must respect the token order)
         # fmt: off
         query = {
             "query": {
@@ -76,6 +75,9 @@ def experiment_should_get_two_docs_using_match_phrase_query():
             }
         }
         # fmt: on
+
+        # act -> should find just two docs, as the 'match_phrase' analyzes the search text (tokenizes it) and
+        # creates a phrase query of the text (which must respect the token order)
         es_response = elastic_client.search(index=index_name, body=query)
 
         # assert
